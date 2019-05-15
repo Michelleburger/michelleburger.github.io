@@ -3,6 +3,7 @@
 <body>
   <h1>EP Buddy Search Tool</h1>
   <p>Please check Mylife.com, Familytreenow.com Fastpeoplesearch.com and Truepeoplesearch.com manually as they are not compatable with this tool.</p>
+  <div id="content"></div>
   <script type = "text/javascript">
   function sitecaller( event ) {
     event.preventDefault();
@@ -211,7 +212,7 @@
         "<button type='submit' class='Button'> Submit</button>",
       "</form>",
     ].join( '' ),
-    body = document.getElementsByTagName( 'body' )[ 0 ];
+    body = document.getElementById( 'content' )[ 0 ];
 
   body.innerHTML = html;
   </script>
