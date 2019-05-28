@@ -15,7 +15,7 @@
    width: 100%;
   }
   .input-group {
-    width: 50%;
+    width: 30%;
     float: left;
     padding-right: 10px;
     margin-bottom: 10px;
@@ -36,6 +36,11 @@
     line-height: 12px;
     position: relative;
     box-sizing: border-box;
+  }
+
+  .input-group label {
+    width: 100%;
+    display: block;
   }
   .header {
     height: 75px;
@@ -110,6 +115,7 @@
             <input id='city' name='city'></input>
           </div>
           <div class="input-group">
+            <label for="stateAbbr">State</label>
             <select id='stateAbbr'>
               <option value='AL'>Alabama</option>
               <option value='AK'>Alaska</option>
