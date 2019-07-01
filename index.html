@@ -296,7 +296,9 @@
 
         `https://www.usa-people-search.com/manage/results.aspx?type=people&fn=${firstName}&ln=${lastName}&mn=&city=${city}&state=${stateAbbr}`,
 
-        `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`
+        `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`,
+        
+        'https://clustrmaps.com/persons/${firstName}-${lastName}/'
       ];
 
     sites.reverse().forEach( (siteurl) => {
