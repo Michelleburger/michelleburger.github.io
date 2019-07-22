@@ -306,7 +306,7 @@
 
         `https://support.whitepages.com/hc/en-us/requests/new`,
 
-        `https://www.peoplefinders.com/people/${firstName}-${lastName}/${state}/${city}`
+        `https://www.peoplefinders.com/people/${firstName}-${lastName}/${stateAbbr.toLowerCase()}/${city}`
       ];
 
     sites.reverse().forEach( (siteurl) => {
