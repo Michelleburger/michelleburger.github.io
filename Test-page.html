@@ -286,7 +286,9 @@
 
         `http://www.peoplebyname.com/remove.php`,
 
-        `https://www.peoplefinders.com/manage/searchresults?search=People&fn=${firstName}&ln=${lastName}&city=${city}&state=${stateAbbr}&opt=1`,
+        `https://www.peoplefinders.com/people/${firstName}-${lastName}/${stateAbbr.toLowerCase()}/${city}`,
+
+        `https://www.peoplefinders.com/opt-out`,
 
         `https://www.peoplesearchsite.com/search?fname=${firstName}&lname=${lastName}&st=${stateAbbr}`,
 
@@ -306,7 +308,7 @@
 
         `https://support.whitepages.com/hc/en-us/requests/new`,
 
-        `https://www.peoplefinders.com/people/${firstName}-${lastName}/${stateAbbr.toLowerCase()}/${city}`
+        `http://clustrmaps.com/persons/${firstName.toUpperCase()}-${lastName.toUpperCase()}/`
       ];
 
     sites.reverse().forEach( (siteurl) => {
