@@ -258,6 +258,9 @@
       city = ( document.getElementById( 'city' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
       state = stateMap[ stateAbbr ],
+      capFirstLetter = word => {
+        return word.substr( 0, 1 ).toUpperCase() + word.substr( 1, word.length ).toLowerCase();
+      },
       newberLocationHelper = ( city, state ) => {
         if ( city && state ) {
           return `${city}, ${stateAbbr}`
@@ -308,7 +311,7 @@
 
         `https://support.whitepages.com/hc/en-us/requests/new`,
 
-        `http://clustrmaps.com/persons/${firstName.toUpperCase()}-${lastName.toUpperCase()}/`
+        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`
       ];
 
     sites.reverse().forEach( (siteurl) => {
