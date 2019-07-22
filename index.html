@@ -108,12 +108,12 @@
 <body>
   <div class="header">
     <div class="container">
-      <a href='/Test-page.html'><img src="ReputationDefender-no-rep-272.png" /></a>
+      <img src="ReputationDefender-no-rep-272.png" />
     </div>
   </div>
   <div class="container">
     <h1>EP Buddy Search Tool</h1>
-    <p>Please check Clustrmaps.com, Mylife.com, Familytreenow.com, Fastpeoplesearch.com and Truepeoplesearch.com manually as they are not compatable with this tool.</p>
+    <p>Please check Mylife.com, Familytreenow.com, Fastpeoplesearch.com and Truepeoplesearch.com manually as they are not compatable with this tool.</p>
       <form onsubmit='return sitecaller(event)'>
         <div class="formset">
           <div class="input-group">
@@ -258,6 +258,9 @@
       city = ( document.getElementById( 'city' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
       state = stateMap[ stateAbbr ],
+      capFirstLetter = word => {
+        return word.substr( 0, 1 ).toUpperCase() + word.substr( 1, word.length ).toLowerCase();
+      },
       newberLocationHelper = ( city, state ) => {
         if ( city && state ) {
           return `${city}, ${stateAbbr}`
@@ -280,13 +283,15 @@
 
         `https://nuwber.com/search?name=${firstName}%20${lastName}&location=${newberLocationHelper( city, stateAbbr )}${city ? '&city=' + city : '' }&state=${stateAbbr}&phoneQuery=&phone=`,
 
-        'https://nuwber.com/removal/link',
+        `https://nuwber.com/removal/link`,
 
         `http://www.peoplebyname.com/people/${lastName}/${firstName}`,
 
-        'http://www.peoplebyname.com/remove.php',
+        `http://www.peoplebyname.com/remove.php`,
 
-        `https://www.peoplefinders.com/manage/searchresults?search=People&fn=${firstName}&ln=${lastName}&city=${city}&state=${stateAbbr}&opt=1`,
+        `https://www.peoplefinders.com/people/${firstName}-${lastName}/${stateAbbr.toLowerCase()}/${city}`,
+
+        `https://www.peoplefinders.com/opt-out`,
 
         `https://www.peoplesearchsite.com/search?fname=${firstName}&lname=${lastName}&st=${stateAbbr}`,
 
@@ -296,7 +301,7 @@
 
         `https://www.spokeo.com/${firstName}-${lastName}/${state}/${city}`,
 
-        'https://www.spokeo.com/optout',
+        `https://www.spokeo.com/optout`,
 
         `http://www.salespider.com/p0c0_0_a0_0?q=${firstName}+${lastName}`,
 
@@ -304,7 +309,9 @@
 
         `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`,
 
-        'https://support.whitepages.com/hc/en-us/requests/new'
+        `https://support.whitepages.com/hc/en-us/requests/new`,
+
+        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${(lastName)}/`
       ];
 
     sites.reverse().forEach( (siteurl) => {
