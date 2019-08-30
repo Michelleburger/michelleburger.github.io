@@ -313,7 +313,14 @@
 
         `https://support.whitepages.com/hc/en-us/requests/new`,
 
-        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`
+        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`,
+
+        `https://www.truepeoplesearch.com/results?name=${firstName}%20${lastName}&citystatezip=${city},%20${stateAbbr}`,
+
+        `https://www.fastpeoplesearch.com/name/${firstName}-${lastName}_${city}-${stateAbbr}`,
+
+        `https://www.familytreenow.com/search/genealogy/results?first=${firstName}&last=${lastName}&ccitystatezip=${city},%20${stateAbbr}`
+
       ];
 
     sites.reverse().forEach( (siteurl) => {
