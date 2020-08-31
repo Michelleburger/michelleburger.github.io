@@ -67,7 +67,9 @@
   h1 {
     margin-bottom: 20px;
   }
-  p {margin-bottom: 10px;}
+  p {margin-bottom: 10px;
+  color: #ff0000; font-weight: bold;
+  }
     .Button {
       border: 0 none;
       box-shadow: 0px 10px 14px -7px #1f94c1;
@@ -108,12 +110,12 @@
 <body>
   <div class="header">
     <div class="container">
-      <a href='/Test-page.html'><img src="RD-horizontal2.png" /></a>
+      <img src="RD-horizontal2.png" />
     </div>
   </div>
   <div class="container">
     <h1>EP Buddy Search Tool</h1>
-    <p>Please check Mylife.com, Checkpeople.com, Smartbackgroundchecks.com, and Infotracer.com manually as they are not compatable with this tool.</p>
+    <p>TEST PAGE!!! Please return to <a href='/index.html'>EP Search Buddy</a></p>
       <form onsubmit='return sitecaller(event)'>
         <div class="formset">
           <div class="input-group">
@@ -189,6 +191,12 @@
         </div>
         <div class="formset">
           <div class="input-group">
+            <label for='emailaddress'>Email Address</label>
+            <input id='emailaddress' name='emailaddress' />
+          </div>  
+        </div>
+        <div class="formset">
+          <div class="input-group">
             <button type='submit' class='Button'> Submit</button>
           </div>
         </div>
@@ -256,6 +264,7 @@
     let firstName = ( document.getElementById( 'firstName' ).value ).trim(),
       lastName = ( document.getElementById( 'lastName' ).value ).trim(),
       city = ( document.getElementById( 'city' ).value ).trim(),
+      email = ( document.getElementById( 'emailaddress' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
       state = stateMap[ stateAbbr ],
       capFirstLetter = word => {
@@ -269,7 +278,10 @@
           return `${stateMap[ stateAbbr ]} (${stateAbbr})`;
         }
       },
-
+      destEmailToBase64 = email => {
+          return btoa(email).replace(/=/g,"%3D");
+      },
+        
       sites = [
         `https://www.beenverified.com/f/search/person?fn=${firstName}&ln=${lastName}&optout=true&state=${state}`,
 
@@ -279,7 +291,7 @@
 
         `https://www.idtrue.com/optout/results.php?first=${firstName}&last=${lastName}&state=${state}&check=`,
 
-        `https://www.intelius.com/optout`,
+        `https://www.intelius.com/opt-out/results/?optOut=true&dataDeletion=false&dataRetrieval=false&emailAddress=${destEmailToBase64(email)}&firstName=${firstName}&lastName=${lastName}&state=${state}`,
 
         `https://nuwber.com/search?name=${firstName}%20${lastName}&location=${newberLocationHelper( city, stateAbbr )}${city ? '&city=' + city : '' }&state=${stateAbbr}&phoneQuery=&phone=`,
 
