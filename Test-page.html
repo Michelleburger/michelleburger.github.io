@@ -191,6 +191,12 @@
         </div>
         <div class="formset">
           <div class="input-group">
+            <label for='emailaddress'>Email Address</label>
+            <input id='emailaddress' name='emailaddress' />
+          </div>  
+        </div>
+        <div class="formset">
+          <div class="input-group">
             <button type='submit' class='Button'> Submit</button>
           </div>
         </div>
@@ -258,6 +264,7 @@
     let firstName = ( document.getElementById( 'firstName' ).value ).trim(),
       lastName = ( document.getElementById( 'lastName' ).value ).trim(),
       city = ( document.getElementById( 'city' ).value ).trim(),
+      email = ( document.getElementById( 'emailaddress' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
       state = stateMap[ stateAbbr ],
       capFirstLetter = word => {
@@ -270,6 +277,9 @@
         else if ( state ) {
           return `${stateMap[ stateAbbr ]} (${stateAbbr})`;
         }
+      },
+      destEmailToBase64 = email => {
+          return btoa(email).replace(/=/g,"%3D");
       },
 
       sites = [
@@ -313,7 +323,9 @@
 
         `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`,
 
-        `https://support.whitepages.com/hc/en-us/requests/new`
+        `https://support.whitepages.com/hc/en-us/requests/new`,
+        
+        `https://www.intelius.com/opt-out/results/?optOut=true&dataDeletion=false&dataRetrieval=false&emailAddress=${destEmailToBase64(email)}&firstName=${firstName}&lastName=${lastName}&state=${state}`
        
       ];
 
