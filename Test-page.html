@@ -274,14 +274,22 @@
 
       sites = [
         `https://www.beenverified.com/f/search/person?fn=${firstName}&ln=${lastName}&optout=true&state=${state}`,
+        
+        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`,
+        
+        `https://checkpeople.com/landing/people/gc1k/results?firstName=${firstName}&lastName=${lastName}&state=${state}&city=${city}&aid=&sid=&tid=&hitid=&iv=`,
 
         `https://www.checkthem.com/optout-results/${firstName}-${lastName}/${city ? city + '/' : ""}${state}/`,
 
         `https://www.instantcheckmate.com/opt-out/results/?firstName=${firstName}&lastName=${lastName}&city=${city}&state=${state}`,
 
         `https://www.idtrue.com/optout/results.php?first=${firstName}&last=${lastName}&state=${state}&check=`,
+        
+        `https://infotracer.com/name/results/?page=results&fullname=${firstName}+${lastName}&state=${state}&type=name&city=${city}`,
 
-        `https://www.intelius.com/optout-search/${firstName}/~/${lastName}/${state}${city ? '/' + city : ""}`,
+        `https://www.intelius.com/optout`,
+        
+        `https://www.mylife.com/pub-multisearch.pubview?search=${firstName}%20${lastName}`,
 
         `https://nuwber.com/search?name=${firstName}%20${lastName}&location=${newberLocationHelper( city, stateAbbr )}${city ? '&city=' + city : '' }&state=${stateAbbr}&phoneQuery=&phone=`,
 
@@ -294,6 +302,8 @@
         `https://www.peoplesearchsite.com/search?fname=${firstName}&lname=${lastName}&st=${stateAbbr}`,
 
         `https://peekyou.com/usa/${state}/${firstName}_${lastName}`,
+        
+        `https://www.smartbackgroundchecks.com/people/${firstName}-${lastName}/${city}/${state}`,
 
         `https://www.spokeo.com/${firstName}-${lastName}/${state}/${city}`,
 
@@ -303,16 +313,8 @@
 
         `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`,
 
-        `https://support.whitepages.com/hc/en-us/requests/new`,
-
-        `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`,
-        
-        `https://infotracer.com/name/results/?page=results&fullname=${firstName}+${lastName}&state=${state}&type=name&city=${city}`,
-        
-        `https://checkpeople.com/landing/people/gc1k/results?firstName=${firstName}&lastName=${lastName}&state=${state}&city=${city}&aid=&sid=&tid=&hitid=&iv=`,
-        
-        `https://www.smartbackgroundchecks.com/people/${firstName}-${lastName}/${city}/${state}`
-     
+        `https://support.whitepages.com/hc/en-us/requests/new`
+       
       ];
 
     sites.reverse().forEach( (siteurl) => {
