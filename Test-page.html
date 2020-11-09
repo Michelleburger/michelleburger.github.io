@@ -126,6 +126,10 @@
             <label for='lastName'>Last Name</label>
             <input id='lastName' name='lastName' />
           </div>
+          <div class="input-group">
+            <label for='age'>Age</label>
+            <input id='age' name='age' />
+          </div>
         </div>
         <div class="formset">
           <div class="input-group">
@@ -263,6 +267,7 @@
 
     let firstName = ( document.getElementById( 'firstName' ).value ).trim(),
       lastName = ( document.getElementById( 'lastName' ).value ).trim(),
+      age = ( document.getElementById( 'age' ).value ).trim(),
       city = ( document.getElementById( 'city' ).value ).trim(),
       email = ( document.getElementById( 'emailaddress' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
@@ -283,7 +288,7 @@
       },
 
       sites = [
-        `https://www.beenverified.com/f/search/person?fn=${firstName}&ln=${lastName}&optout=true&state=${state}`,
+        `https://www.beenverified.com/app/search/person?age=${age}&city=${city}&fname=${firstName}&ln=${lastName}&mn=&optout=true&state=${stateAbbr.toLowerCase()}`,
         
         `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`,
         
