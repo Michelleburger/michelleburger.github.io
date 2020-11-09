@@ -283,7 +283,7 @@
       },
         
       sites = [
-        `https://www.beenverified.com/f/search/person?fn=${firstName}&ln=${lastName}&optout=true&state=${state}`,
+        `https://www.beenverified.com/app/search/person?age=${age}&city=${city}&fname=${firstName}&ln=${lastName}&mn=&optout=true&state=${stateAbbr.toLowerCase()}`,
 
         `https://www.checkthem.com/optout-results/${firstName}-${lastName}/${city ? city + '/' : ""}${state}/`,
 
