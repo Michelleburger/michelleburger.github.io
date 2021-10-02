@@ -46,6 +46,7 @@
     position: relative;
     box-sizing: border-box;
   }
+
   .input-group label {
     width: 100%;
     display: block;
@@ -59,13 +60,16 @@
     border-bottom: 1px solid #d0d0ce;
     box-shadow: 0px 0px 2px 0px #d0d0ce;
   }
+
   body {font-family: 'Montserrat', sans-serif;
         color: #535353;
   }
   h1 {
     margin-bottom: 20px;
   }
-  p {margin-bottom: 10px;}
+  p {margin-bottom: 10px;
+  color: #ff0000; font-weight: bold;
+  }
     .Button {
       border: 0 none;
       box-shadow: 0px 10px 14px -7px #1f94c1;
@@ -106,12 +110,12 @@
 <body>
   <div class="header">
     <div class="container">
-      <a href='/Test-page.html'><img src="RD-horizontal2.png" /></a>
+      <img src="RD-horizontal2.png" />
     </div>
   </div>
   <div class="container">
     <h1>EP Buddy Search Tool</h1>
-    <p>Nov. site test group.</p>
+    <p>TEST PAGE!!! Please return to <a href='/index.html'>EP Search Buddy</a></p>
       <form onsubmit='return sitecaller(event)'>
         <div class="formset">
           <div class="input-group">
@@ -121,6 +125,10 @@
           <div class="input-group">
             <label for='lastName'>Last Name</label>
             <input id='lastName' name='lastName' />
+          </div>
+          <div class="input-group">
+            <label for='age'>Age</label>
+            <input id='age' name='age' />
           </div>
         </div>
         <div class="formset">
@@ -187,6 +195,12 @@
         </div>
         <div class="formset">
           <div class="input-group">
+            <label for='emailaddress'>Email Address</label>
+            <input id='emailaddress' name='emailaddress' />
+          </div>  
+        </div>
+        <div class="formset">
+          <div class="input-group">
             <button type='submit' class='Button'> Submit</button>
           </div>
         </div>
@@ -196,6 +210,7 @@
   <script type = "text/javascript">
   function sitecaller( event ) {
     event.preventDefault();
+
     let stateMap = {
       AL: "Alabama",
       AK: "Alaska",
@@ -249,9 +264,12 @@
       WI: "Wisconsin",
       WY: "Wyoming"
     };
+
     let firstName = ( document.getElementById( 'firstName' ).value ).trim(),
       lastName = ( document.getElementById( 'lastName' ).value ).trim(),
+      age = ( document.getElementById( 'age' ).value ).trim(),
       city = ( document.getElementById( 'city' ).value ).trim(),
+      email = ( document.getElementById( 'emailaddress' ).value ).trim(),
       stateAbbr = document.getElementById( 'stateAbbr' ).value,
       state = stateMap[ stateAbbr ],
       capFirstLetter = word => {
@@ -265,18 +283,56 @@
           return `${stateMap[ stateAbbr ]} (${stateAbbr})`;
         }
       },
+      destEmailToBase64 = email => {
+          return btoa(email).replace(/=/g,"%3D");
+      },
+
       sites = [
-      `https://www.smartbackgroundchecks.com/people/${firstName}-${lastName}/${city}/${stateAbbr}`,
-      `https://www.checkpeople.com/landing/people/gc1k/results?firstName=${firstName}&lastName=${lastName}&state=${stateAbbr}&city=${city}&aid=&sid=&tid=&iv=`,
-      `https://recordsfinder.com/optout/`
-   
+        `https://thatsthem.com/name/${firstName}-${lastName}/${state}`,
+
+        `https://thatsthem.com/optout`,
+
+        `https://persopo.com`,
+
+        `https://xlek.com/index.php`,
+
+        `https://socialcatfish.com`,
+
+        `https://socialcatfish.com/opt-out/`,
+
+        `https://www.spytox.com/${firstName}-${lastName}`,
+
+        `https://www.spytox.com/opt_out`,
+
+        `https://peoplesearch.us.com/optout.php?first=${firstName}&last=${lastName}&stts=${state}&btn-frm-hm=`,
+
+        `https://www.publicdatacheck.com`,
+
+        `https://www.publicdatacheck.com/help-center/remove-my-public-record`,
+
+        `https://www.spyfly.com`,
+
+        `https://www.spyfly.com/help-center/remove-my-public-record`,
+
+        `https://pub360.com/profile/search?fname=${firstName}&lname=${lastName}&state=${state}&city=${city}&fage=`,
+
+        `https://pub360.com/ng/control/privacy`,
+
+        `https://www.cyberbackgroundchecks.com/people/${firstName}-${lastName}/${state}`,
+
+        `https://www.fastbackgroundcheck.com/people/${firstName}-${lastName}/${state}`,
+
+        `https://unmask.com/results/?uid=11&aid=25&sub1=&tid=&sub2=&sid=&providerID=&firstName=${firstName}&lastName=${lastName}&state=${state}&city=${city}&age=`
+       
       ];
+
     sites.reverse().forEach( (siteurl) => {
       window.open(siteurl);
       console.log(siteurl);
     });
   }
     body = document.getElementById( 'content' );
+
   body.innerHTML = html;
   </script>
 </body>
