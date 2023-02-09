@@ -293,14 +293,26 @@
         `http://clustrmaps.com/persons/${capFirstLetter(firstName)}-${capFirstLetter(lastName)}/`,
         
         `https://checkpeople.com/landing/people/gc1k/results?firstName=${firstName}&lastName=${lastName}&state=${state}&city=${city}&aid=&sid=&tid=&hitid=&iv=`,
+        
+        `https://checkpeople.com/do-not-sell-info`,
+        
+        `https://information.com/remove-my-info/`,
+
+        `https://unmask.com/opt-out/`,
 
         `https://www.idtrue.com/optout/results.php?first=${firstName}&last=${lastName}&state=${state}&check=`,
         
-        `https://infotracer.com/name/results/?page=results&fullname=${firstName}+${lastName}&state=${state}&type=name&city=${city}`,
-
-        `https://www.intelius.com/opt-out/results/?optOut=true&dataDeletion=false&dataRetrieval=false&emailAddress=${destEmailToBase64(email)}&firstName=${firstName}&lastName=${lastName}&state=${state}`,
+        //`https://infotracer.com/name/results/?page=results&fullname=${firstName}+${lastName}&state=${state}&type=name&city=${city}`,
         
-        `https://www.mylife.com/pub-multisearch.pubview?search=${firstName}%20${lastName}`,
+        `https://infotracer.com/optout/`,
+        
+        `https://www.intelius.com/suppression-center`,
+
+        //`https://www.intelius.com/opt-out/results/?optOut=true&dataDeletion=false&dataRetrieval=false&emailAddress=${destEmailToBase64(email)}&firstName=${firstName}&lastName=${lastName}&state=${state}`,
+        
+        //`https://www.mylife.com/pub-multisearch.pubview?search=${firstName}%20${lastName}`,
+        
+        `https://www.mylife.com/pub-multisearch.pubview?searchFirstName=${firstName}&searchLastName=${lastName}&searchLocation=${city}%2C+${state}CA&whyReg=peoplesearch&whySub=Member+Profile+Sub&pageType=ps`,
         
         'https://www.mylife.com/ccpa/index.pubview',
 
@@ -308,17 +320,23 @@
 
         `https://pub360.com/profile/search?fname=${firstName}&lname=${lastName}&state=${state}&city=${city}&fage=`,
 
-        `https://pub360.com/ng/control/privacy`,
+        //`https://pub360.com/ng/control/privacy`,
         
         `http://www.peoplebyname.com/people/${lastName}/${firstName}`,
 
         `http://www.peoplebyname.com/remove.php`,
 
-        `https://www.peoplesearchsite.com/search?fname=${firstName}&lname=${lastName}&st=${stateAbbr}`,
+        //`https://www.peoplesearchsite.com/search?fname=${firstName}&lname=${lastName}&st=${stateAbbr}`,
         
-        `https://peoplesearch.us.com/optout.php?first=${firstName}&last=${lastName}&stts=${state}&btn-frm-hm=`,
+        `https://www.peoplesearchsite.com/`,
+        
+        `https://peoplesearch.us.com/optout.php?first=${firstName}&last=${lastName}&stts=${stateAbbr}&btn-frm-hm=`,
+        
+        //`https://peoplesearch.us.com/optout.php?first=${firstName}&last=${lastName}&stts=${state}&btn-frm-hm=`,
 
         `https://peekyou.com/usa/${state}/${firstName}_${lastName}`,
+        
+        `https://www.peekyou.com/about/contact/ccpa_optout/do_not_sell/`,
         
         `https://www.smartbackgroundchecks.com/people/${firstName}-${lastName}/${city}/${state}`,
 
@@ -333,8 +351,12 @@
         `https://thatsthem.com/optout`,
 
         `https://www.whitepages.com/name/${firstName}-${lastName}/${city}-${state}?l=${city}%2C+${state}&q=${firstName}+${lastName}`,
+        
+        `https://www.whitepages.com/privacy/ccpa`,
 
-        `https://support.whitepages.com/hc/en-us/requests/new`,
+        //`https://support.whitepages.com/hc/en-us/requests/new`,
+        
+        //`https://whitepagesprivacy.zendesk.com/hc/en-us/requests/new`,
         
         `https://www.archives.com/optout`
        
